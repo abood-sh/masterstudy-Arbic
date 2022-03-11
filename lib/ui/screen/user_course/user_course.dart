@@ -377,7 +377,7 @@ class UserCourseWidgetState extends State<UserCourseWidget> {
                 textScaleFactor: 1.0,
                 style: GoogleFonts.cairo(color: HexColor.fromHex("#AAAAAA")),
               ),
-              Text(
+              sectionItem.title == null ?Text('...'): Text(
                 sectionItem.title,
                 textScaleFactor: 1.0,
                 style: GoogleFonts.cairo(

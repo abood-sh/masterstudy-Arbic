@@ -102,6 +102,7 @@ class WebCheckoutWidgetState extends State<WebCheckoutWidget> {
                   name: "lmsEvent",
                   onMessageReceived: (JavascriptMessage result) {
                     print(result.message);
+                    print(result.message);
 
                     if (jsonDecode(result.message)["event_type"] ==
                         "order_created") {

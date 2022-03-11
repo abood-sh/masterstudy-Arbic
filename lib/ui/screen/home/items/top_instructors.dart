@@ -87,13 +87,13 @@ class TopInstructorsWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
+                  padding: const EdgeInsets.only(top: 10.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(60.0),
                     child: Image.network(
                       avatar,
-                      width: 70,
-                      height: 70,
+                      width: 50,
+                      height: 50,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -102,10 +102,11 @@ class TopInstructorsWidget extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
                   child: Text(
                     "$firstName" + " $lastName",
+                    maxLines: 1,
                     textScaleFactor: 1.0,
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.cairo(fontSize: 20)
-                        .copyWith(color: dark, fontSize: 18),
+                    style: GoogleFonts.cairo(fontSize: 18,)
+                        .copyWith(color: dark, fontSize: 15),
                   ),
                 ),
                 Padding(
@@ -114,7 +115,7 @@ class TopInstructorsWidget extends StatelessWidget {
                     position,
                     textScaleFactor: 1.0,
                     textAlign: TextAlign.center,
-                    maxLines: 2,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.cairo(fontSize: 20)
                         .copyWith(color: Colors.grey[600], fontSize: 16),
@@ -143,6 +144,7 @@ class TopInstructorsWidget extends StatelessWidget {
                   child: Text(
                     "$stars ($reviewsCount review)",
                     textScaleFactor: 1.0,
+                    maxLines: 1,
                     style: GoogleFonts.cairo(fontSize: 16, color: Colors.grey[600]),
                   ),
                 ),

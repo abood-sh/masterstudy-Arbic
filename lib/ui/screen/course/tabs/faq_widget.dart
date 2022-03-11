@@ -11,7 +11,12 @@ class FaqWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return response.faq == null || response.faq.length == null
+        ? Center(child: Text('لا يوجد تعليمات',
+    style: GoogleFonts.cairo(),
+    ))
+
+        : ListView.builder(
         itemCount: response.faq.length,
         itemBuilder: (context, index) {
           var item = response.faq[index];

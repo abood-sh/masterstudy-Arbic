@@ -21,6 +21,7 @@ class NewCoursesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return (courses.length != 0) ? Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,6 +48,10 @@ class NewCoursesWidget extends StatelessWidget {
             itemCount: courses.length,
             itemBuilder: (context, index){
               var item = courses[index];
+              print('4444');
+              //  print(item.categories_object.length);
+              //  print(item.categories_object[index].name);
+              //  print(item.categories_object[index].id);
               var padding = (index == 0)? 20.0: 0.0;
 
               var rating = 0.0;
@@ -65,7 +70,7 @@ class NewCoursesWidget extends StatelessWidget {
                     arguments: CourseScreenArgs(item),
                   );
                 },
-                child: Padding(
+                child: (item.categories_object.isNotEmpty) ? Padding(
                   padding: EdgeInsets.only(right:padding ),
                   child: _buildCard(
                       context,
@@ -77,7 +82,7 @@ class NewCoursesWidget extends StatelessWidget {
                       item.price.price,
                       item.price.old_price,
                       item.price.free),
-                ),
+                ) : Container(),
               );
             },
             padding: const EdgeInsets.all(8.0),
@@ -112,28 +117,31 @@ class NewCoursesWidget extends StatelessWidget {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
+                  const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        CategoryDetailScreen.routeName,
-                        arguments: CategoryDetailScreenArgs(category),
-                      );
+                      if(category != null){
+                        Navigator.pushNamed(
+                          context,
+                          CategoryDetailScreen.routeName,
+                          arguments: CategoryDetailScreenArgs(category),
+                        );
+                      }
+
                     },
-                    child: Text(
+                    child: (category != null) ? Text(
                       "${unescape.convert(category.name)} >",
                       textScaleFactor: 1.0,
                       style: GoogleFonts.cairo(
                           fontSize: 15,
                           color: HexColor.fromHex("#2a3045").withOpacity(0.5)),
-                      ),
+                    ) : Text(''),
                   ),
                 ),
                 Container(
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(top: 6.0, left: 16.0, right: 16.0),
+                    const EdgeInsets.only(top: 6.0, left: 16.0, right: 16.0),
                     child: Text(
                       unescape.convert(title),
                       textScaleFactor: 1.0,
@@ -144,7 +152,7 @@ class NewCoursesWidget extends StatelessWidget {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.only(top: 5.0, left: 16.0, right: 16.0),
+                  const EdgeInsets.only(top: 5.0, left: 16.0, right: 16.0),
                   child: Divider(
                     color: HexColor.fromHex("#e0e0e0"),
                     thickness: 1.3,
@@ -152,7 +160,7 @@ class NewCoursesWidget extends StatelessWidget {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.only(top: 5.0, left: 15.0, right: 16.0),
+                  const EdgeInsets.only(top: 5.0, left: 15.0, right: 16.0),
                   child: Row(
                     children: <Widget>[
                       RatingBar(
@@ -195,6 +203,7 @@ class NewCoursesWidget extends StatelessWidget {
 
   _buildPrice(context,price, oldPrice, free) {
     if (free) return Center();
+    print(444455);
     print(oldPrice.toString());
     return Padding(
       padding: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),

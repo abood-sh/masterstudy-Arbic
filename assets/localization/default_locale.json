@@ -16,7 +16,7 @@
   "password_register_characters_count_error_text": "استخدم 8 أحرف أو أكثر لكلمة المرور الخاصة بك",
   "password_sign_in_characters_count_error_text": "استخدم 4 أحرف أو أكثر لكلمة المرور الخاصة بك",
   "error_dialog_title": "خطأ",
-  "[[ok_dialog_button]]": "نعم",
+  "ok_dialog_button": "نعم",
   "registration_button": "التسجيل",
   "sign_in_button": "تسجيل الدخول",
   "search_bar_title": "البحث في الدورات",

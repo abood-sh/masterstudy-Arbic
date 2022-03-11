@@ -48,7 +48,7 @@ class _CurriculumWidgetState extends State<CurriculumWidget> with AutomaticKeepA
             textScaleFactor: 1.0,
             style: GoogleFonts.cairo(color: HexColor.fromHex("#AAAAAA")),
           ),
-          Text(
+          curriculumBean.label == null || curriculumBean.label.isEmpty ? Container(): Text(
             curriculumBean.label,
             textScaleFactor: 1.0,
             style: GoogleFonts.cairo(

@@ -27,7 +27,7 @@ import 'package:masterstudy_app/data/models/user_course.dart';
 @provide
 @singleton
 class UserApiProvider {
-  static const BASE_URL = "https://dev-ihl.pantheonsite.io";
+  static const BASE_URL = "https://dev-icrc.pantheonsite.io";
   static const String apiEndpoint = BASE_URL + "/wp-json/ms_lms/v1/";
   final Dio _dio;
 
@@ -76,6 +76,7 @@ class UserApiProvider {
       options: Options(
         headers: {"requirestoken": "true"},
       ),
+
     );
     return CourcesResponse.fromJson(response.data);
   }

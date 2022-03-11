@@ -70,7 +70,10 @@ class CourseGridItem extends StatelessWidget {
                     },
                     child:
                     Text(
-                      unescape.convert(coursesBean.categories_object.first.name),
+                        coursesBean.categories_object == []
+                            || coursesBean.categories_object.isEmpty
+                            || coursesBean.categories_object == null ? ''
+                     : unescape.convert(coursesBean.categories_object.first.name),
                       textScaleFactor: 1.0,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -83,9 +86,7 @@ class CourseGridItem extends StatelessWidget {
                   child: Text(unescape.convert(coursesBean.title)+ '\n',
                       maxLines: 2,
                       textScaleFactor: 1,
-                      style: Theme.of(context)
-                          .primaryTextTheme
-                          .subtitle
+                      style: GoogleFonts.cairo(fontSize: 13)
                           .copyWith(color: Colors.black,)),
                 ),
                 Padding(

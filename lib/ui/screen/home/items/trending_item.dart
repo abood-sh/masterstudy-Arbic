@@ -15,11 +15,11 @@ class TrendingWidget extends StatefulWidget {
   final List<CoursesBean> courses;
 
   TrendingWidget(
-    this.darkMode,
-    this.title,
-    this.courses, {
-    Key key,
-  }) : super(key: key);
+      this.darkMode,
+      this.title,
+      this.courses, {
+        Key key,
+      }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -42,7 +42,7 @@ class _TrendingWidget extends State<TrendingWidget> {
     backgroundColor = widget.darkMode ? dark : Colors.white;
     primaryTextColor = widget.darkMode ? white : dark;
     secondaryTextColor =
-        widget.darkMode ? white.withOpacity(0.5) : Colors.grey[500];
+    widget.darkMode ? white.withOpacity(0.5) : Colors.grey[500];
 
     return (widget.courses.length != 0) ? Container(
       decoration: BoxDecoration(color: backgroundColor),
@@ -55,7 +55,7 @@ class _TrendingWidget extends State<TrendingWidget> {
               child: Text(widget.title,
                   textScaleFactor: 1.0,
                   style: GoogleFonts.cairo().copyWith(
-                    fontSize: 22,
+                      fontSize: 22,
                       color: primaryTextColor, fontStyle: FontStyle.normal))),
           _buildList(context)
         ],
@@ -90,7 +90,7 @@ class _TrendingWidget extends State<TrendingWidget> {
                   arguments: CourseScreenArgs(item),
                 );
               },
-              child: Padding(
+              child: (item.categories_object.isNotEmpty) ? Padding(
                   padding: EdgeInsets.only(right: leftPadding),
                   child: _buildItem(
                       context,
@@ -101,7 +101,7 @@ class _TrendingWidget extends State<TrendingWidget> {
                       reviews,
                       item.price.price,
                       item.price.old_price,
-                      item.price.free)),
+                      item.price.free)) : Container(),
             );
           }),
     );
@@ -130,19 +130,19 @@ class _TrendingWidget extends State<TrendingWidget> {
             Padding(
               padding: const EdgeInsets.only(top: 8.0, left: 0.0, right: 16.0),
               child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    CategoryDetailScreen.routeName,
-                    arguments: CategoryDetailScreenArgs(category),
-                  );
-                },
-                child: Text(
-                "${unescape.convert(category.name)} >",
-                  textScaleFactor: 1.0,
-                style: Theme.of(context).primaryTextTheme.subhead.copyWith(
-                    color: secondaryTextColor, fontStyle: FontStyle.normal,fontSize: 12),
-                )
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      CategoryDetailScreen.routeName,
+                      arguments: CategoryDetailScreenArgs(category),
+                    );
+                  },
+                  child: Text(
+                    "${unescape.convert(category.name)} >",
+                    textScaleFactor: 1.0,
+                    style: Theme.of(context).primaryTextTheme.subhead.copyWith(
+                        color: secondaryTextColor, fontStyle: FontStyle.normal,fontSize: 12),
+                  )
               ),
             ),
             Container(
@@ -204,10 +204,10 @@ class _TrendingWidget extends State<TrendingWidget> {
             price,
             textScaleFactor: 1.0,
             style: Theme.of(context).primaryTextTheme.subhead.copyWith(
-                  color: primaryTextColor,
-                  fontStyle: FontStyle.normal,
-              fontWeight: FontWeight.bold
-                ),
+                color: primaryTextColor,
+                fontStyle: FontStyle.normal,
+                fontWeight: FontWeight.bold
+            ),
           ),
           Visibility(
             visible: oldPrice != null,

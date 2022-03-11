@@ -124,7 +124,7 @@ class _CoursesWidgetState extends State<_CoursesWidget> {
     return ListView.builder(
         itemCount: courses.length,
         itemBuilder: (context, index) {
-          return  _CourseWidget(courses[index]);
+          return _CourseWidget(courses[index]);
         });
   }
 }
@@ -178,7 +178,7 @@ class _CourseWidget extends StatelessWidget {
                 Padding(
                     padding: const EdgeInsets.only(
                         top: 16.0, left: 16.0, right: 16.0),
-                    child: GestureDetector(
+                    child:   GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(
                           context,
@@ -187,8 +187,13 @@ class _CourseWidget extends StatelessWidget {
                               postsBean.categories_object.first),
                         );
                       },
-                      child: Text(
-                        "${unescape.convert(postsBean.categories_object.first.name)} >",
+                      child:
+                           Text(
+                               postsBean.categories_object == []
+                               || postsBean.categories_object.isEmpty
+                               || postsBean.categories_object == null
+
+                                   ? "" :  "${unescape.convert(postsBean.categories_object.first.name)} >" ,
                         textScaleFactor: 1.0,
                         style: GoogleFonts.cairo(
                             fontSize: 16,
@@ -240,13 +245,18 @@ class _CourseWidget extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text(
+                      postsBean.duration != null ? Text(
                         postsBean.duration,
                         textScaleFactor: 1.0,
                         style: GoogleFonts.cairo(
                             color:
                                 HexColor.fromHex("#2a3045").withOpacity(0.5)),
-                      ),
+                      ): Text(
+                        'مدة الزمنية ..',
+                        textScaleFactor: 1.0,
+                        style: GoogleFonts.cairo(
+                            color:
+                            HexColor.fromHex("#2a3045").withOpacity(0.5)),),
                       Text(
                         postsBean.progress_label,
                         textScaleFactor: 1.0,

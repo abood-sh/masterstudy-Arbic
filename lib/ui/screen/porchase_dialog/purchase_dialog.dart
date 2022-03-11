@@ -111,6 +111,7 @@ class PurchaseDialogState extends State<PurchaseDialog> {
           child: Text(
             localizations.getLocalization("select_payment_button"),
             textScaleFactor: 1.0,
+            style: GoogleFonts.cairo(fontSize: 18),
           ),
           textColor: Colors.white,
         ),
@@ -134,7 +135,7 @@ class PurchaseDialogState extends State<PurchaseDialog> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           SizedBox(
-            height: 50,
+            height: 100,
             child: Stack(
               children: <Widget>[
                 Row(
@@ -144,8 +145,9 @@ class PurchaseDialogState extends State<PurchaseDialog> {
                       selected ? Icons.check_circle : Icons.panorama_fish_eye,
                       color:
                           selected ? secondColor : Colors.grey,
-                      size: 40,
+                      size: 35,
                     ),
+                    SizedBox(width: 10,),
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0),
                       child: Column(
@@ -155,7 +157,7 @@ class PurchaseDialogState extends State<PurchaseDialog> {
                           Text(
                             "$title",
                             textScaleFactor: 1.0,
-                            style: GoogleFonts.cairo(fontSize: 18),
+                            style: GoogleFonts.cairo(fontSize: 15),
                           ),
                           Text(
                             "$subtitle ",
@@ -168,19 +170,20 @@ class PurchaseDialogState extends State<PurchaseDialog> {
                   ],
                 ),
                 Positioned(
-                  right: 0,
-                  top: 0,
+                  right: 5,
+                  top: 5,
                   bottom: 0,
                   child: Center(
                       child: Text(
                     "$value",
                         textScaleFactor: 1.0,
                     style: GoogleFonts.cairo(
-                        fontSize: 26,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: secondColor
                     ),
-                  )),
+                  )
+                  ),
                 )
               ],
             ),
@@ -197,7 +200,7 @@ class PurchaseDialogState extends State<PurchaseDialog> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           SizedBox(
-            height: 50,
+            height: 63,
             child: Stack(
               children: <Widget>[
                 Row(

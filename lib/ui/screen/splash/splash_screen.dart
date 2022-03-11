@@ -103,11 +103,11 @@ class SplashWidgetState extends State<SplashWidget> {
           Padding(
             padding: EdgeInsets.only(bottom: 0),
             child: Text(
-              (postsCount != "") ? "COURSES" : "",
+              (postsCount != "") ? "الدورات" : "",
               textScaleFactor: 1.0,
               style: GoogleFonts.cairo(
                   color: HexColor.fromHex("#000000"),
-                  fontSize: 14.0,
+                  fontSize: 22.0,
                   fontWeight: FontWeight.w500),
             ),
           ),

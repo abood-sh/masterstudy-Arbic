@@ -171,6 +171,7 @@ class QuizLessonWidgetState extends State<QuizLessonWidget> {
           ),
         ),
         WebView(
+
           javascriptMode: JavascriptMode.unrestricted,
           initialUrl:
           'data:text/html;base64,${base64Encode(const Utf8Encoder().convert(state.quizResponse.content))}',

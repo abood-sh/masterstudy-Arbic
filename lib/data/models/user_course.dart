@@ -40,7 +40,7 @@ class PostsBean {
   String app_image;
   PostAuthorBean author;
   String lesson_type;
-  List<Category> categories_object;
+  List<Category> categories_object ;
 
   PostsBean({this.image_id, this.title, this.link, this.image, this.terms, this.terms_list, this.views, this.price, this.sale_price, this.post_status, this.progress, this.progress_label, this.current_lesson_id, this.course_id, this.lesson_id, this.start_time, this.duration, this.app_image, this.author, this.lesson_type, this.categories_object});
 

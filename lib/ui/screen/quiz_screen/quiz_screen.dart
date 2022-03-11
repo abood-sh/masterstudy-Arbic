@@ -161,6 +161,8 @@ class QuizScreenWidgetState extends State<QuizScreenWidget> {
             JavascriptChannel(
                 name: "lmsEvent",
                 onMessageReceived: (JavascriptMessage result) {
+                  print(result.message);
+
                   //_handleEvent(result.message);
                 }),
           ]),
